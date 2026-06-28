@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dhruv Rana — Software Developer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:ital,wght@0,600;1,400&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:    #1B3A6B;
+      --blue:    #2E6BE6;
+      --blue-lt: #EAF0FB;
+      --ink:     #1A1F2E;
+      --slate:   #4A5568;
+      --mist:    #F4F7FF;
+      --line:    #DDE3EF;
+      --white:   #FFFFFF;
+      --accent:  #2E6BE6;
+      --radius:  10px;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.65;
+      font-size: 16px;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--line);
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 6vw; height: 62px;
+    }
+    .nav-logo {
+      font-family: 'Lora', serif;
+      font-size: 1.2rem; font-weight: 600;
+      color: var(--navy); text-decoration: none;
+      letter-spacing: -0.02em;
+    }
+    .nav-logo span { color: var(--blue); }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      text-decoration: none; color: var(--slate);
+      font-size: 0.875rem; font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--blue); color: white !important;
+      padding: 8px 20px; border-radius: 6px;
+      font-weight: 600 !important;
+    }
+    .nav-cta:hover { background: var(--navy); color: white !important; }
+
+    /* ── HERO ── */
+    #hero {
+      min-height: 100vh;
+      display: flex; align-items: center;
+      padding: 80px 6vw 60px;
+      background: linear-gradient(135deg, var(--mist) 0%, #fff 55%, var(--blue-lt) 100%);
+    }
+    .hero-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: grid; grid-template-columns: 1fr 380px; gap: 80px; align-items: center;
+    }
+    .hero-tag {
+      display: inline-flex; align-items: center; gap: 8px;
+      background: var(--blue-lt); color: var(--blue);
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em;
+      text-transform: uppercase; padding: 6px 14px; border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .hero-tag::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--blue); }
+    h1 {
+      font-family: 'Lora', serif;
+      font-size: clamp(2.4rem, 4.5vw, 3.4rem);
+      font-weight: 600; color: var(--navy);
+      line-height: 1.18; letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+    h1 em { font-style: italic; color: var(--blue); }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--slate);
+      max-width: 520px; margin-bottom: 36px; line-height: 1.7;
+    }
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--blue); color: white;
+      padding: 13px 28px; border-radius: var(--radius);
+      text-decoration: none; font-weight: 600; font-size: 0.9rem;
+      transition: background 0.2s, transform 0.15s;
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+    .btn-ghost {
+      border: 1.5px solid var(--line); color: var(--ink);
+      padding: 13px 28px; border-radius: var(--radius);
+      text-decoration: none; font-weight: 500; font-size: 0.9rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .btn-ghost:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* Hero contact pills */
+    .hero-contact {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-top: 28px;
+    }
+    .contact-pill {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 0.8rem; color: var(--slate);
+      text-decoration: none;
+      padding: 5px 12px; border-radius: 20px;
+      border: 1px solid var(--line);
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .contact-pill:hover { border-color: var(--blue); color: var(--blue); }
+
+    /* Profile photo */
+    .hero-photo-wrap {
+      display: flex; justify-content: center; align-items: center;
+    }
+    .hero-photo {
+      position: relative;
+      width: 300px; height: 300px;
+    }
+    .hero-photo::before {
+      content: '';
+      position: absolute;
+      border: 2px dashed var(--line);
+      border-radius: 50%;
+    }
+    .hero-photo img {
+      width: 100%; height: 100%;
+      border-radius: 50%; object-fit: cover;
+      border: 4px solid white;
+      box-shadow: 0 20px 60px rgba(30,58,107,0.18);
+    }
+    .badge {
+      position: absolute; bottom: 12px; right: -10px;
+      background: white; border: 1.5px solid var(--line);
+      border-radius: 12px; padding: 8px 14px;
+      font-size: 0.75rem; font-weight: 600; color: var(--navy);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+      display: flex; align-items: center; gap: 6px;
+    }
+    .badge-dot { width: 8px; height: 8px; border-radius: 50%; background: #22C55E; }
+
+    /* ── SECTIONS ── */
+    section { padding: 80px 6vw; }
+    .section-inner { max-width: 1100px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--blue); margin-bottom: 10px;
+    }
+    h2 {
+      font-family: 'Lora', serif;
+      font-size: clamp(1.7rem, 3vw, 2.3rem);
+      color: var(--navy); font-weight: 600;
+      letter-spacing: -0.02em; margin-bottom: 48px;
+    }
+    h3 { font-size: 1.1rem; font-weight: 600; color: var(--ink); }
+
+    /* ── ABOUT ── */
+    #about { background: var(--mist); }
+    .about-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start;
+    }
+    .about-text p { color: var(--slate); margin-bottom: 16px; }
+    .about-stats {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    .stat-card {
+      background: white; border-radius: var(--radius);
+      border: 1px solid var(--line); padding: 24px;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Lora', serif; font-size: 2.2rem;
+      font-weight: 600; color: var(--blue); line-height: 1;
+    }
+    .stat-label { font-size: 0.8rem; color: var(--slate); margin-top: 4px; }
+
+    /* ── SKILLS ── */
+    .skills-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px;
+    }
+    .skill-card {
+      background: var(--mist); border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 28px 24px;
+      transition: box-shadow 0.2s, transform 0.2s;
+    }
+    .skill-card:hover { box-shadow: 0 8px 28px rgba(46,107,230,0.1); transform: translateY(-2px); }
+    .skill-icon {
+      width: 44px; height: 44px; border-radius: 10px;
+      background: var(--blue-lt); display: flex; align-items: center;
+      justify-content: center; margin-bottom: 16px; font-size: 1.3rem;
+    }
+    .skill-card h3 { margin-bottom: 12px; }
+    .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 12px; }
+    .tag {
+      background: white; border: 1px solid var(--line);
+      color: var(--slate); font-size: 0.73rem; font-weight: 500;
+      padding: 3px 10px; border-radius: 20px;
+    }
+
+    /* ── EXPERIENCE ── */
+    #experience { background: var(--mist); }
+    .timeline { display: flex; flex-direction: column; gap: 0; }
+    .timeline-item {
+      display: grid; grid-template-columns: 180px 1fr;
+      gap: 32px; padding: 36px 0; border-top: 1px solid var(--line);
+    }
+    .timeline-item:last-child { border-bottom: 1px solid var(--line); }
+    .timeline-date { font-size: 0.8rem; color: var(--slate); font-weight: 500; padding-top: 2px; }
+    .timeline-company {
+      font-size: 0.78rem; font-weight: 600; color: var(--blue);
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .timeline-role { font-size: 1.05rem; font-weight: 600; color: var(--ink); margin-bottom: 12px; }
+    .timeline-body ul { list-style: none; padding: 0; }
+    .timeline-body li {
+      position: relative; padding-left: 18px;
+      color: var(--slate); font-size: 0.9rem; margin-bottom: 7px;
+    }
+    .timeline-body li::before { content: '→'; position: absolute; left: 0; color: var(--blue); }
+
+    /* ── PROJECTS ── */
+    .projects-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 28px;
+    }
+    .project-card {
+      background: white; border: 1px solid var(--line);
+      border-radius: var(--radius); overflow: hidden;
+      transition: box-shadow 0.25s, transform 0.2s;
+    }
+    .project-card:hover { box-shadow: 0 12px 40px rgba(46,107,230,0.12); transform: translateY(-3px); }
+    .project-header {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 30px 28px; color: white;
+    }
+    .project-tech {
+      font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+      text-transform: uppercase; color: rgba(255,255,255,0.65); margin-bottom: 8px;
+    }
+    .project-header h3 { font-size: 1.2rem; font-weight: 600; color: white; }
+    .project-body { padding: 24px 28px; }
+    .project-body p { color: var(--slate); font-size: 0.9rem; margin-bottom: 14px; }
+    .project-highlights { list-style: none; padding: 0; }
+    .project-highlights li {
+      position: relative; padding-left: 18px;
+      color: var(--slate); font-size: 0.85rem; margin-bottom: 6px;
+    }
+    .project-highlights li::before { content: '✓'; position: absolute; left: 0; color: #22C55E; font-weight: 700; }
+
+    /* ── EDUCATION ── */
+    .edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    .edu-card {
+      border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 28px; background: white;
+    }
+    .edu-degree { font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+    .edu-school { color: var(--blue); font-size: 0.875rem; font-weight: 500; }
+    .edu-period { font-size: 0.78rem; color: var(--slate); margin-top: 4px; }
+
+    /* ── CERTIFICATIONS ── */
+    #certifications { background: var(--mist); }
+    .certs-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 18px;
+    }
+    .cert-card {
+      background: white; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 20px 22px; display: flex; gap: 16px; align-items: flex-start;
+      transition: box-shadow 0.2s;
+    }
+    .cert-card:hover { box-shadow: 0 4px 16px rgba(46,107,230,0.1); }
+    .cert-icon {
+      width: 38px; height: 38px; flex-shrink: 0;
+      background: var(--blue-lt); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+    }
+    .cert-name { font-size: 0.88rem; font-weight: 600; color: var(--ink); }
+    .cert-org { font-size: 0.76rem; color: var(--slate); margin-top: 3px; }
+
+    /* ── CONTACT ── */
+    #contact { text-align: center; }
+    .contact-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px; max-width: 700px; margin: 0 auto 48px;
+    }
+    .contact-card {
+      background: var(--mist); border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 24px 20px; text-decoration: none; color: inherit;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .contact-card:hover { border-color: var(--blue); box-shadow: 0 4px 16px rgba(46,107,230,0.1); }
+    .contact-card-icon { font-size: 1.6rem; margin-bottom: 10px; }
+    .contact-card-label { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--slate); }
+    .contact-card-value { font-size: 0.85rem; font-weight: 500; color: var(--blue); margin-top: 4px; word-break: break-all; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.55);
+      text-align: center; padding: 28px 6vw;
+      font-size: 0.82rem;
+    }
+    footer span { color: rgba(255,255,255,0.8); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 860px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+      .hero-photo-wrap { order: -1; }
+      .hero-photo { width: 200px; height: 200px; }
+      .about-grid { grid-template-columns: 1fr; gap: 36px; }
+      .edu-grid { grid-template-columns: 1fr; }
+      .timeline-item { grid-template-columns: 1fr; gap: 6px; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Dhruv<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-tag">Available for Internship</div>
+      <h1>Building <em>scalable</em><br/>web systems &amp;<br/>blockchain solutions</h1>
+      <p class="hero-sub">
+        MCA student at LJ University with production experience in full-stack development,
+        blockchain architecture, and data-driven engineering. Passionate about clean code and efficient systems.
+      </p>
+      <div class="hero-actions">
+        <a href="#projects" class="btn-primary">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
+          View Projects
+        </a>
+        <a href="#contact" class="btn-ghost">Get in Touch</a>
+      </div>
+      <div class="hero-contact">
+        <a href="mailto:dhruvrana26602@gmail.com" class="contact-pill">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          dhruvrana26602@gmail.com
+        </a>
+        <a href="https://linkedin.com/in/dhruvrana26602" target="_blank" class="contact-pill">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/><circle cx="4" cy="4" r="2"/></svg>
+          linkedin.com/in/dhruvrana26602
+        </a>
+        <span class="contact-pill">
+          <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          Ahmedabad, Gujarat
+        </span>
+      </div>
+    </div>
+
+    <div class="hero-photo-wrap">
+      <div class="hero-photo">
+        <img src="assets/profile.png" alt="Dhruv Rana"/>
+        <div class="badge">
+          <div class="badge-dot"></div>
+          Open to work
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-eyebrow">About Me</div>
+    <h2>Turning ideas into<br/>working software</h2>
+    <div class="about-grid">
+      <div class="about-text">
+        <p>
+          I'm Dhruv Rana, a Master of Computer Applications student at LJ University, Ahmedabad.
+          I have hands-on experience building production-grade web applications and blockchain systems
+          across the full stack — from database design to responsive front-end interfaces.
+        </p>
+        <p>
+          My work ranges from architecting a tamper-proof blockchain e-voting platform to engineering
+          full-stack rental systems with optimised SQL and secure authentication. I'm driven by
+          scalable architecture, clean code, and solving real problems with technology.
+        </p>
+        <p>
+          Outside of code, I've earned recognition in competitive programming, hold certifications in
+          SAP consulting, data science, and UX design — and I'm actively seeking a software
+          engineering internship where I can contribute to large-scale systems.
+        </p>
+      </div>
+      <div class="about-stats">
+        <div class="stat-card">
+          <div class="stat-number">3+</div>
+          <div class="stat-label">Years of Coding Experience</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Certifications Earned</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">2</div>
+          <div class="stat-label">Production Projects</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">🏆</div>
+          <div class="stat-label">Coding Competition Winner</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-inner">
+    <div class="section-eyebrow">Technical Skills</div>
+    <h2>What I work with</h2>
+    <div class="skills-grid">
+
+      <div class="skill-card">
+        <div class="skill-icon">💻</div>
+        <h3>Languages</h3>
+        <div class="skill-tags">
+          <span class="tag">Python</span>
+          <span class="tag">Java</span>
+          <span class="tag">PHP</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">C/C++</span>
+          <span class="tag">SQL</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">⚙️</div>
+        <h3>Frameworks &amp; Libraries</h3>
+        <div class="skill-tags">
+          <span class="tag">Django</span>
+          <span class="tag">Bootstrap 5</span>
+          <span class="tag">WordPress</span>
+          <span class="tag">REST APIs</span>
+          <span class="tag">MVC Architecture</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🗄️</div>
+        <h3>Database &amp; Backend</h3>
+        <div class="skill-tags">
+          <span class="tag">MySQL</span>
+          <span class="tag">Query Optimisation</span>
+          <span class="tag">Indexing</span>
+          <span class="tag">OOP</span>
+          <span class="tag">Session Management</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🛠️</div>
+        <h3>Tools &amp; Platforms</h3>
+        <div class="skill-tags">
+          <span class="tag">Git</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Linux CLI</span>
+          <span class="tag">Agile/Scrum</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">🔗</div>
+        <h3>Specialisations</h3>
+        <div class="skill-tags">
+          <span class="tag">Blockchain</span>
+          <span class="tag">Machine Learning</span>
+          <span class="tag">Data Structures</span>
+          <span class="tag">SEO</span>
+          <span class="tag">UX Design</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
+        <div class="skill-icon">📊</div>
+        <h3>Data &amp; AI</h3>
+        <div class="skill-tags">
+          <span class="tag">Python for Data Science</span>
+          <span class="tag">Supervised Learning</span>
+          <span class="tag">ChatGPT</span>
+          <span class="tag">Data Insights</span>
+          <span class="tag">SAP</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <div class="section-inner">
+    <div class="section-eyebrow">Experience</div>
+    <h2>Where I've worked</h2>
+    <div class="timeline">
+
+      <div class="timeline-item">
+        <div class="timeline-date">Jan 2026 – Present</div>
+        <div class="timeline-body">
+          <div class="timeline-company">Badiya Brand · Surat (Remote)</div>
+          <div class="timeline-role">WordPress Developer</div>
+          <ul>
+            <li>Developed and maintained responsive WordPress websites, optimising themes and plugins to improve page-load performance.</li>
+            <li>Implemented on-page SEO best practices including structured data and sitemap optimisation.</li>
+            <li>Collaborated with stakeholders to deliver features on schedule and iterate quickly based on feedback.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <div class="timeline-date">Aug – Sep 2024</div>
+        <div class="timeline-body">
+          <div class="timeline-company">Prodigy InfoTech · India (Remote)</div>
+          <div class="timeline-role">Web Developer Intern</div>
+          <ul>
+            <li>Built dynamic web pages with HTML5, CSS3, Bootstrap 5, and JavaScript; integrated RESTful APIs and debugged PHP back-end modules.</li>
+            <li>Participated in agile sprint cycles and code reviews, reducing UI bugs through improved input validation and modular code structure.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-inner">
+    <div class="section-eyebrow">Projects</div>
+    <h2>Things I've built</h2>
+    <div class="projects-grid">
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-tech">Python · Django · Bootstrap 5 · Blockchain</div>
+          <h3>VoteChain — Blockchain E-Voting System</h3>
+        </div>
+        <div class="project-body">
+          <p>A tamper-proof digital voting platform that leverages blockchain principles to ensure immutability and full auditability of every cast vote.</p>
+          <ul class="project-highlights">
+            <li>Designed blockchain architecture ensuring votes are immutable and fully auditable.</li>
+            <li>Built RESTful Django back-end with role-based access control for voters, candidates, and admins.</li>
+            <li>Reduced fraudulent vote attempts to zero in simulated load tests.</li>
+            <li>Delivered responsive Bootstrap 5 front-end with real-time vote tally dashboards.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="project-card">
+        <div class="project-header">
+          <div class="project-tech">PHP · MySQL · HTML5 · CSS3</div>
+          <h3>Car Rental Platform</h3>
+        </div>
+        <div class="project-body">
+          <p>A full-stack car booking system featuring real-time availability search, user authentication, and booking management for 50+ vehicle listings.</p>
+          <ul class="project-highlights">
+            <li>Engineered real-time availability search and booking management for 50+ vehicles.</li>
+            <li>Optimised MySQL queries with indexing strategies, cutting average query time by ~40%.</li>
+            <li>Implemented secure session management and input sanitisation against SQL injection and XSS.</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" style="background: var(--mist);">
+  <div class="section-inner">
+    <div class="section-eyebrow">Education</div>
+    <h2>Academic background</h2>
+    <div class="edu-grid">
+      <div class="edu-card">
+        <div style="font-size:1.8rem;margin-bottom:14px;">🎓</div>
+        <div class="edu-degree">Master of Computer Applications (MCA)</div>
+        <div class="edu-school">LJ University, Ahmedabad</div>
+        <div class="edu-period">July 2024 – April 2026</div>
+      </div>
+      <div class="edu-card">
+        <div style="font-size:1.8rem;margin-bottom:14px;">📘</div>
+        <div class="edu-degree">Bachelor of Computer Applications (BCA)</div>
+        <div class="edu-school">M.K. Institute of Computer Studies, VNSGU, Bharuch</div>
+        <div class="edu-period">June 2021 – April 2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CERTIFICATIONS -->
+<section id="certifications">
+  <div class="section-inner">
+    <div class="section-eyebrow">Certifications &amp; Achievements</div>
+    <h2>Recognition &amp; credentials</h2>
+    <div class="certs-grid">
+
+      <div class="cert-card">
+        <div class="cert-icon">🏢</div>
+        <div>
+          <div class="cert-name">SAP Technology Consultant</div>
+          <div class="cert-org">SAP · 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🐍</div>
+        <div>
+          <div class="cert-name">Python for Data Science, AI &amp; Development</div>
+          <div class="cert-org">IBM / Coursera · 2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">📊</div>
+        <div>
+          <div class="cert-name">ChatGPT &amp; Excel for Data Insights</div>
+          <div class="cert-org">2025</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🎨</div>
+        <div>
+          <div class="cert-name">UX Design Fundamentals &amp; UI/UX Design</div>
+          <div class="cert-org">Professional Certification</div>
+        </div>
+      </div>
+
+      <div class="cert-card">
+        <div class="cert-icon">🏆</div>
+        <div>
+          <div class="cert-name">National Pixel Puzzle Coding Competition</div>
+          <div class="cert-org">Winner — Competitive Programming</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <div class="section-eyebrow">Contact</div>
+    <h2>Let's work together</h2>
+    <p style="color:var(--slate);max-width:480px;margin:0 auto 48px;font-size:0.95rem;">
+      I'm actively looking for a software engineering internship. Whether you have an opportunity,
+      a project, or just want to connect — my inbox is open.
+    </p>
+    <div class="contact-grid">
+      <a href="mailto:dhruvrana26602@gmail.com" class="contact-card">
+        <div class="contact-card-icon">✉️</div>
+        <div class="contact-card-label">Email</div>
+        <div class="contact-card-value">dhruvrana26602@gmail.com</div>
+      </a>
+      <a href="tel:+919870098180" class="contact-card">
+        <div class="contact-card-icon">📱</div>
+        <div class="contact-card-label">Phone</div>
+        <div class="contact-card-value">+91 98700 98180</div>
+      </a>
+      <a href="https://linkedin.com/in/dhruvrana26602" target="_blank" class="contact-card">
+        <div class="contact-card-icon">🔗</div>
+        <div class="contact-card-label">LinkedIn</div>
+        <div class="contact-card-value">linkedin.com/in/dhruvrana26602</div>
+      </a>
+      <div class="contact-card">
+        <div class="contact-card-icon">📍</div>
+        <div class="contact-card-label">Location</div>
+        <div class="contact-card-value">Ahmedabad, Gujarat, India</div>
+      </div>
+    </div>
+    <a href="mailto:dhruvrana26602@gmail.com" class="btn-primary" style="margin: 0 auto; display:inline-flex;">
+      Send me a message →
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>Dhruv Rana</span> · MCA Student &amp; Full-Stack Developer · Ahmedabad, India
+  <br/>Designed &amp; built with care · 2025
+</footer>
+
+</body>
+</html>
