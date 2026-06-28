@@ -134,7 +134,7 @@
     }
     .hero-photo::before {
       content: '';
-      position: absolute;
+      position: absolute; inset: -12px;
       border: 2px dashed var(--line);
       border-radius: 50%;
     }
@@ -315,6 +315,63 @@
     footer span { color: rgba(255,255,255,0.8); }
 
     /* ── RESPONSIVE ── */
+    /* ── CLIENT WORK ── */
+    #clientwork { background: var(--mist); }
+    .clients-filter {
+      display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 40px;
+    }
+    .filter-btn {
+      padding: 7px 18px; border-radius: 20px; border: 1.5px solid var(--line);
+      background: white; color: var(--slate); font-size: 0.8rem; font-weight: 600;
+      cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: var(--blue); color: white; border-color: var(--blue);
+    }
+    .clients-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px;
+    }
+    .client-card {
+      background: white; border: 1px solid var(--line); border-radius: var(--radius);
+      padding: 22px 24px; display: flex; flex-direction: column; gap: 10px;
+      transition: box-shadow 0.2s, transform 0.2s;
+      text-decoration: none; color: inherit;
+    }
+    .client-card:hover { box-shadow: 0 8px 28px rgba(46,107,230,0.12); transform: translateY(-2px); }
+    .client-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+    .client-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .client-category {
+      font-size: 0.68rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+      flex-shrink: 0;
+    }
+    .cat-textile  { background: #FEF3C7; color: #92400E; }
+    .cat-health   { background: #D1FAE5; color: #065F46; }
+    .cat-industry { background: #E0E7FF; color: #3730A3; }
+    .cat-food     { background: #FEE2E2; color: #991B1B; }
+    .cat-tech     { background: #EDE9FE; color: #6D28D9; }
+    .cat-jewel    { background: #FEF9C3; color: #713F12; }
+    .cat-print    { background: #FCE7F3; color: #9D174D; }
+    .cat-solar    { background: #DCFCE7; color: #14532D; }
+    .cat-wood     { background: #FEF3C7; color: #78350F; }
+    .cat-fire     { background: #FEE2E2; color: #7F1D1D; }
+    .client-name { font-size: 1rem; font-weight: 700; color: var(--navy); }
+    .client-desc { font-size: 0.84rem; color: var(--slate); line-height: 1.55; flex: 1; }
+    .client-url {
+      font-size: 0.75rem; color: var(--blue); font-weight: 500;
+      display: flex; align-items: center; gap: 5px; margin-top: 4px;
+    }
+    .client-url svg { opacity: 0.7; }
+    .client-tech { display: flex; flex-wrap: wrap; gap: 5px; margin-top: 4px; }
+    .client-tag {
+      background: var(--mist); border: 1px solid var(--line);
+      color: var(--slate); font-size: 0.7rem; padding: 2px 8px; border-radius: 20px;
+    }
+    .clients-count {
+      font-size: 0.8rem; color: var(--slate); margin-bottom: 28px;
+    }
+    .clients-count strong { color: var(--blue); }
+
     @media (max-width: 860px) {
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-photo-wrap { order: -1; }
@@ -336,6 +393,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#clientwork">Client Work</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -554,7 +612,7 @@
 <!-- PROJECTS -->
 <section id="projects">
   <div class="section-inner">
-    <div class="section-eyebrow">Projects</div>
+    <div class="section-eyebrow">Personal Projects</div>
     <h2>Things I've built</h2>
     <div class="projects-grid">
 
@@ -593,7 +651,220 @@
   </div>
 </section>
 
-<!-- EDUCATION -->
+<!-- CLIENT WORK -->
+<section id="clientwork">
+  <div class="section-inner">
+    <div class="section-eyebrow">Client Work</div>
+    <h2>15 live websites delivered</h2>
+    <p class="clients-count">Real production sites built and maintained across diverse industries — <strong>all WordPress / Elementor</strong>, SEO-optimised and live.</p>
+
+    <div class="clients-filter">
+      <button class="filter-btn active" onclick="filterClients('all', this)">All (15)</button>
+      <button class="filter-btn" onclick="filterClients('textile', this)">Textile &amp; Fashion</button>
+      <button class="filter-btn" onclick="filterClients('health', this)">Health &amp; Wellness</button>
+      <button class="filter-btn" onclick="filterClients('industry', this)">Industry &amp; Manufacturing</button>
+      <button class="filter-btn" onclick="filterClients('food', this)">Food</button>
+      <button class="filter-btn" onclick="filterClients('tech', this)">Tech &amp; Solar</button>
+    </div>
+
+    <div class="clients-grid" id="clientsGrid">
+
+      <!-- TEXTILE -->
+      <a class="client-card" href="https://tapitara.com/" target="_blank" data-cat="textile">
+        <div class="client-card-top">
+          <span class="client-icon">🥻</span>
+          <span class="client-category cat-textile">Textile</span>
+        </div>
+        <div class="client-name">Tapi Tara</div>
+        <div class="client-desc">Surat-based saree manufacturer offering bulk supply, custom designs, and fast delivery direct from the factory floor.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>tapitara.com</div>
+      </a>
+
+      <a class="client-card" href="https://sundersizers.com/" target="_blank" data-cat="textile">
+        <div class="client-card-top">
+          <span class="client-icon">🧵</span>
+          <span class="client-category cat-textile">Textile</span>
+        </div>
+        <div class="client-name">Sunder Sizers</div>
+        <div class="client-desc">Premium Jacquard saree and fabric manufacturer serving wholesalers, retailers, and exporters with rich designs and on-time delivery.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>sundersizers.com</div>
+      </a>
+
+      <a class="client-card" href="https://geethatextile.com" target="_blank" data-cat="textile">
+        <div class="client-card-top">
+          <span class="client-icon">👗</span>
+          <span class="client-category cat-textile">Textile</span>
+        </div>
+        <div class="client-name">Geetha Textile</div>
+        <div class="client-desc">Indian ethnic wear exporter and manufacturer specialising in sarees and kurtis, catering to global buyers with premium designs.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>geethatextile.com</div>
+      </a>
+
+      <a class="client-card" href="https://ethirajfashion.com/" target="_blank" data-cat="textile">
+        <div class="client-card-top">
+          <span class="client-icon">🪡</span>
+          <span class="client-category cat-textile">Textile</span>
+        </div>
+        <div class="client-name">Ethiraj Fashion</div>
+        <div class="client-desc">Trusted RFD fabric manufacturer in India supplying consistent, quality fabric at bulk scale for garment producers. Based in Surat.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>ethirajfashion.com</div>
+      </a>
+
+      <a class="client-card" href="https://theprintinkco.com/" target="_blank" data-cat="print">
+        <div class="client-card-top">
+          <span class="client-icon">🖨️</span>
+          <span class="client-category cat-print">Print</span>
+        </div>
+        <div class="client-name">The Print Ink Co.</div>
+        <div class="client-desc">Specialised digital fabric printing company with a daily production capacity of 45,000 metres, delivering 100% customised prints.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>theprintinkco.com</div>
+      </a>
+
+      <!-- HEALTH -->
+      <a class="client-card" href="https://blisspsychohypnosis.com/" target="_blank" data-cat="health">
+        <div class="client-card-top">
+          <span class="client-icon">🧠</span>
+          <span class="client-category cat-health">Health</span>
+        </div>
+        <div class="client-name">Bliss Psycho Hypnosis</div>
+        <div class="client-desc">Hypnotherapy and psychotherapy clinic in Surat offering personalised care for stress, anxiety, and emotional healing.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>blisspsychohypnosis.com</div>
+      </a>
+
+      <a class="client-card" href="https://blissdrbabariya.com/" target="_blank" data-cat="health">
+        <div class="client-card-top">
+          <span class="client-icon">🩺</span>
+          <span class="client-category cat-health">Health</span>
+        </div>
+        <div class="client-name">Bliss Dr. Babariya</div>
+        <div class="client-desc">Portfolio site for Dr. Jigar Babariya, Clinical Cosmetologist and Aesthetic Physician with 15+ years in advanced skincare.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>blissdrbabariya.com</div>
+      </a>
+
+      <!-- INDUSTRY / MANUFACTURING -->
+      <a class="client-card" href="https://prismcoats.com/" target="_blank" data-cat="industry">
+        <div class="client-card-top">
+          <span class="client-icon">🎨</span>
+          <span class="client-category cat-industry">Industry</span>
+        </div>
+        <div class="client-name">Prism Coats</div>
+        <div class="client-desc">Industrial powder coating manufacturer based in Pipodara, Surat, delivering durable and premium colour finishes for bulk orders.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>prismcoats.com</div>
+      </a>
+
+      <a class="client-card" href="http://auramentwholesale.com/" target="_blank" data-cat="jewel">
+        <div class="client-card-top">
+          <span class="client-icon">💎</span>
+          <span class="client-category cat-jewel">Jewellery</span>
+        </div>
+        <div class="client-name">Aurament Wholesale</div>
+        <div class="client-desc">Diamond jewellery manufacturer in Surat offering certified quality pieces, premium designs, and bulk wholesale supply.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>auramentwholesale.com</div>
+      </a>
+
+      <a class="client-card" href="https://theluasa.com/" target="_blank" data-cat="industry">
+        <div class="client-card-top">
+          <span class="client-icon">🪵</span>
+          <span class="client-category cat-wood">Wood &amp; Materials</span>
+        </div>
+        <div class="client-name">The Luasa</div>
+        <div class="client-desc">Veneer and laminate manufacturer in Surat offering premium custom laminate solutions with bulk supply and ready stock.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>theluasa.com</div>
+      </a>
+
+      <a class="client-card" href="https://newindiafire.com/" target="_blank" data-cat="industry">
+        <div class="client-card-top">
+          <span class="client-icon">🔥</span>
+          <span class="client-category cat-fire">Fire Safety</span>
+        </div>
+        <div class="client-name">New India Fire Tech</div>
+        <div class="client-desc">Leading fire safety company in India helping buildings meet compliance standards and prevent fire incidents.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>newindiafire.com</div>
+      </a>
+
+      <a class="client-card" href="https://hongstar.in/" target="_blank" data-cat="industry">
+        <div class="client-card-top">
+          <span class="client-icon">⭐</span>
+          <span class="client-category cat-industry">Industry</span>
+        </div>
+        <div class="client-name">Hong Star</div>
+        <div class="client-desc">Industrial products and solutions website covering multiple sectors with a comprehensive products, industries, and solutions catalogue.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>hongstar.in</div>
+      </a>
+
+      <!-- FOOD -->
+      <a class="client-card" href="https://vasudevworldexport.com/" target="_blank" data-cat="food">
+        <div class="client-card-top">
+          <span class="client-icon">🥨</span>
+          <span class="client-category cat-food">Food</span>
+        </div>
+        <div class="client-name">Vasudev World Export</div>
+        <div class="client-desc">Gujarat's leading Indian namkeen manufacturer and global exporter offering premium snacks and bulk supply to international markets.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>vasudevworldexport.com</div>
+      </a>
+
+      <a class="client-card" href="https://farmcut.in/" target="_blank" data-cat="food">
+        <div class="client-card-top">
+          <span class="client-icon">🍟</span>
+          <span class="client-category cat-food">Food</span>
+        </div>
+        <div class="client-name">Farm Cut</div>
+        <div class="client-desc">Leading frozen french fries manufacturer in India delivering premium, crispy fries for retailers and restaurants with reliable bulk supply.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>farmcut.in</div>
+      </a>
+
+      <!-- TECH / SOLAR -->
+      <a class="client-card" href="https://ucengineer.com" target="_blank" data-cat="tech">
+        <div class="client-card-top">
+          <span class="client-icon">☀️</span>
+          <span class="client-category cat-solar">Solar / Tech</span>
+        </div>
+        <div class="client-name">UC Engineer</div>
+        <div class="client-desc">Solar EPC design company in India delivering bankable, efficient solar layouts with expert engineering. Based in Adajan, Surat.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>ucengineer.com</div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<script>
+function filterClients(cat, btn) {
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.client-card').forEach(card => {
+    if (cat === 'all') {
+      card.style.display = '';
+    } else {
+      const cardCat = card.getAttribute('data-cat');
+      const showMap = {
+        textile: ['textile','print'],
+        health: ['health'],
+        industry: ['industry','jewel','wood','fire'],
+        food: ['food'],
+        tech: ['tech','solar']
+      };
+      card.style.display = (showMap[cat] || []).includes(cardCat) ? '' : 'none';
+    }
+  });
+}
+</script>
+
 <section id="education" style="background: var(--mist);">
   <div class="section-inner">
     <div class="section-eyebrow">Education</div>
