@@ -355,6 +355,9 @@
     .cat-solar    { background: #DCFCE7; color: #14532D; }
     .cat-wood     { background: #FEF3C7; color: #78350F; }
     .cat-fire     { background: #FEE2E2; color: #7F1D1D; }
+    .cat-agency   { background: #DBEAFE; color: #1E3A8A; }
+    .cat-creative { background: #FFE4E6; color: #9F1239; }
+    .cat-travel   { background: #E0F2FE; color: #075985; }
     .client-name { font-size: 1rem; font-weight: 700; color: var(--navy); }
     .client-desc { font-size: 0.84rem; color: var(--slate); line-height: 1.55; flex: 1; }
     .client-url {
@@ -372,6 +375,32 @@
     }
     .clients-count strong { color: var(--blue); }
 
+    /* ── PLUGINS ── */
+    .plugins-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
+    }
+    .plugin-category {
+      background: white; border: 1px solid var(--line);
+      border-radius: var(--radius); padding: 26px 26px 10px;
+    }
+    .plugin-category-title {
+      display: flex; align-items: center; gap: 10px;
+      font-size: 0.98rem; font-weight: 700; color: var(--navy);
+      margin-bottom: 16px; padding-bottom: 14px; border-bottom: 1px solid var(--line);
+    }
+    .plugin-category-icon {
+      width: 32px; height: 32px; border-radius: 8px; flex-shrink: 0;
+      background: var(--blue-lt); display: flex; align-items: center; justify-content: center;
+      font-size: 1rem;
+    }
+    .plugin-row {
+      display: flex; justify-content: space-between; align-items: flex-start;
+      gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line);
+    }
+    .plugin-row:last-child { border-bottom: none; }
+    .plugin-name { font-size: 0.83rem; font-weight: 600; color: var(--ink); flex: 1.3; }
+    .plugin-use { font-size: 0.78rem; color: var(--slate); flex: 1; text-align: right; }
+
     @media (max-width: 860px) {
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-photo-wrap { order: -1; }
@@ -380,6 +409,8 @@
       .edu-grid { grid-template-columns: 1fr; }
       .timeline-item { grid-template-columns: 1fr; gap: 6px; }
       .nav-links { display: none; }
+      .plugin-row { flex-direction: column; gap: 2px; }
+      .plugin-use { text-align: left; }
     }
   </style>
 </head>
@@ -394,6 +425,7 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#clientwork">Client Work</a></li>
+    <li><a href="#plugins">Plugins</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -402,11 +434,14 @@
 <section id="hero">
   <div class="hero-inner">
     <div class="hero-text">
-      <div class="hero-tag">Available for Internship</div>
-      <h1>Building <em>scalable</em><br/>web systems &amp;<br/>blockchain solutions</h1>
+      <div class="hero-tag">Intoduction</div>
+      <h1>Hi, I'm Dhruv Rana <br/>a <em>WordPress</em> &amp;<br/>full-stack developer</h1>
       <p class="hero-sub">
-        MCA student at LJ University with production experience in full-stack development,
-        blockchain architecture, and data-driven engineering. Passionate about clean code and efficient systems.
+        I'm an MCA student at LJ University, Ahmedabad, currently working as a WordPress
+        Developer at Badiya Brand in Surat, where I build and maintain live client websites
+        end to end. Alongside client work, I build full-stack and blockchain projects in
+        Python, PHP, and Django. I care about clean, maintainable code, fast-loading pages,
+        and getting the small details right for every project I touch.
       </p>
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">
@@ -451,19 +486,27 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          I'm Dhruv Rana, a Master of Computer Applications student at LJ University, Ahmedabad.
-          I have hands-on experience building production-grade web applications and blockchain systems
-          across the full stack — from database design to responsive front-end interfaces.
+          My name is Dhruv Rana. I am a Master of Computer Applications (MCA) student at LJ
+          University, Ahmedabad, and I currently work as a WordPress Developer at Badiya Brand
+          in Surat, Gujarat. Over the past several months I have built and maintained more than
+          twenty live, production websites for real businesses — from textile manufacturers and
+          clinics to solar EPC firms and food exporters — handling everything from Elementor page
+          design and WooCommerce setup to SEO, performance, and security.
         </p>
         <p>
-          My work ranges from architecting a tamper-proof blockchain e-voting platform to engineering
-          full-stack rental systems with optimised SQL and secure authentication. I'm driven by
-          scalable architecture, clean code, and solving real problems with technology.
+          Alongside my day-to-day WordPress work, I also build full-stack applications across
+          the stack, from database design to responsive front-end interfaces. My personal
+          projects range from a blockchain-based e-voting platform to a full-stack car rental
+          system with optimised SQL and secure authentication. I enjoy the discipline of writing
+          clean, well-structured code and the satisfaction of shipping something that actually
+          works well for the people using it.
         </p>
         <p>
-          Outside of code, I've earned recognition in competitive programming, hold certifications in
-          SAP consulting, data science, and UX design — and I'm actively seeking a software
-          engineering internship where I can contribute to large-scale systems.
+          Outside of code, I have earned recognition in competitive programming and hold
+          certifications in SAP consulting, data science, and UX design. I am actively looking
+          for a software engineering internship or full-time opportunity where I can bring this
+          same combination of practical WordPress experience and full-stack development skill to
+          a larger engineering team.
         </p>
       </div>
       <div class="about-stats">
@@ -472,12 +515,12 @@
           <div class="stat-label">Years of Coding Experience</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">5+</div>
-          <div class="stat-label">Certifications Earned</div>
+          <div class="stat-number">24</div>
+          <div class="stat-label">Live Client Websites</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">2</div>
-          <div class="stat-label">Production Projects</div>
+          <div class="stat-number">5+</div>
+          <div class="stat-label">Certifications Earned</div>
         </div>
         <div class="stat-card">
           <div class="stat-number">🏆</div>
@@ -580,14 +623,18 @@
     <div class="timeline">
 
       <div class="timeline-item">
-        <div class="timeline-date">Present</div>
+        <div class="timeline-date">Nov 2025 – Present<br/>(8 Months)</div>
         <div class="timeline-body">
-          <div class="timeline-company">Badiya Brand · Surat On Site</div>
+          <div class="timeline-company">Badiya Brand · Surat, Gujarat, India (On-site)</div>
           <div class="timeline-role">WordPress Developer</div>
           <ul>
-            <li>Developed and maintained responsive WordPress websites, optimising themes and plugins to improve page-load performance.</li>
-            <li>Implemented on-page SEO best practices including structured data and sitemap optimisation.</li>
-            <li>Collaborated with stakeholders to deliver features on schedule and iterate quickly based on feedback.</li>
+            <li>Developed and maintained responsive WordPress websites, optimising themes and plugins to improve page-load performance and Core Web Vitals scores.</li>
+            <li>Built and customised pages using Elementor page builder, including custom widgets, dynamic templates, and reusable global sections to speed up development cycles.</li>
+            <li>Configured and managed WooCommerce storefronts, including product catalogs, payment gateway integration, and order workflows.</li>
+            <li>Implemented on-page SEO best practices (structured data/schema markup, XML sitemap optimisation, meta tags) using tools such as Yoast SEO / Rank Math, improving organic search visibility.</li>
+            <li>Used caching and optimisation plugins (e.g., WP Rocket, Smush) alongside custom CSS/JavaScript to reduce load times and improve site performance.</li>
+            <li>Managed website hosting, backups, security hardening, and version control (Git) for client sites.</li>
+            <li>Collaborated with stakeholders and designers to translate requirements into functional, on-brand web pages, shipping features on schedule.</li>
           </ul>
         </div>
       </div>
@@ -654,16 +701,20 @@
 <section id="clientwork">
   <div class="section-inner">
     <div class="section-eyebrow">Client Work</div>
-    <h2>15 live websites delivered</h2>
+    <h2>24 live websites delivered</h2>
     <p class="clients-count">Real production sites built and maintained across diverse industries — <strong>all WordPress / Elementor</strong>, SEO-optimised and live.</p>
 
     <div class="clients-filter">
-      <button class="filter-btn active" onclick="filterClients('all', this)">All (15)</button>
+      <button class="filter-btn active" onclick="filterClients('all', this)">All (24)</button>
       <button class="filter-btn" onclick="filterClients('textile', this)">Textile &amp; Fashion</button>
       <button class="filter-btn" onclick="filterClients('health', this)">Health &amp; Wellness</button>
       <button class="filter-btn" onclick="filterClients('industry', this)">Industry &amp; Manufacturing</button>
       <button class="filter-btn" onclick="filterClients('food', this)">Food</button>
       <button class="filter-btn" onclick="filterClients('tech', this)">Tech &amp; Solar</button>
+      <button class="filter-btn" onclick="filterClients('print', this)">Printing &amp; Advertising</button>
+      <button class="filter-btn" onclick="filterClients('creative', this)">Photography &amp; Media</button>
+      <button class="filter-btn" onclick="filterClients('agency', this)">Digital Agency</button>
+      <button class="filter-btn" onclick="filterClients('travel', this)">Travel &amp; Events</button>
     </div>
 
     <div class="clients-grid" id="clientsGrid">
@@ -838,6 +889,112 @@
         <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>ucengineer.com</div>
       </a>
 
+      <!-- AGENCY -->
+      <a class="client-card" href="https://badiyabrand.com/" target="_blank" data-cat="agency">
+        <div class="client-card-top">
+          <span class="client-icon">🚀</span>
+          <span class="client-category cat-agency">Digital Agency</span>
+        </div>
+        <div class="client-name">Badiya Brand</div>
+        <div class="client-desc">My current employer — a full-service digital agency in Surat building WordPress and Elementor websites, WooCommerce stores, and SEO campaigns for clients across India.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>badiyabrand.com</div>
+      </a>
+
+      <!-- PHOTOGRAPHY -->
+      <a class="client-card" href="https://photophactorystudios.com/" target="_blank" data-cat="creative">
+        <div class="client-card-top">
+          <span class="client-icon">📸</span>
+          <span class="client-category cat-creative">Photography</span>
+        </div>
+        <div class="client-name">Photo Phactory Studios</div>
+        <div class="client-desc">Wedding, pre-wedding, and commercial photography studio in Surat with over a decade of experience, showcasing a cinematic portfolio and service pages for hundreds of past clients.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>photophactorystudios.com</div>
+      </a>
+
+      <!-- HEALTH -->
+      <a class="client-card" href="https://www.sakhiyaskinclinic.com/" target="_blank" data-cat="health">
+        <div class="client-card-top">
+          <span class="client-icon">🩹</span>
+          <span class="client-category cat-health">Health</span>
+        </div>
+        <div class="client-name">Sakhiya Skin Clinic</div>
+        <div class="client-desc">Dermatology and skin-care clinic website presenting treatments, doctor profiles, and appointment information with a clean, trust-building design.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>sakhiyaskinclinic.com</div>
+      </a>
+
+      <!-- TEXTILE -->
+      <a class="client-card" href="https://proshiv.com/" target="_blank" data-cat="textile">
+        <div class="client-card-top">
+          <span class="client-icon">🧶</span>
+          <span class="client-category cat-textile">Textile</span>
+        </div>
+        <div class="client-name">Proshiv</div>
+        <div class="client-desc">Surat-based knitted and woven elastic tape manufacturer serving garment and medical industries, with a product catalogue and enquiry flow built for bulk B2B buyers.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>proshiv.com</div>
+      </a>
+
+      <a class="client-card" href="https://texoraglobal.in/" target="_blank" data-cat="textile">
+        <div class="client-card-top">
+          <span class="client-icon">🧵</span>
+          <span class="client-category cat-textile">Textile</span>
+        </div>
+        <div class="client-name">Texora Global</div>
+        <div class="client-desc">Knitted fabric manufacturer supporting garment brands and exporters, with a site built around production quality, process detail, and buyer FAQs.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>texoraglobal.in</div>
+      </a>
+
+      <!-- PRINT / ADVERTISING -->
+      <a class="client-card" href="https://adkingpublicity.com/" target="_blank" data-cat="print">
+        <div class="client-card-top">
+          <span class="client-icon">🖨️</span>
+          <span class="client-category cat-print">Print &amp; Ad</span>
+        </div>
+        <div class="client-name">Adking Publicity</div>
+        <div class="client-desc">Printing and advertising company with 20+ years in the industry, offering an online storefront for corporate gifting, packaging, and promotional print products.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>adkingpublicity.com</div>
+      </a>
+
+      <!-- INDUSTRY -->
+      <a class="client-card" href="https://gjimpex.in/" target="_blank" data-cat="industry">
+        <div class="client-card-top">
+          <span class="client-icon">⚖️</span>
+          <span class="client-category cat-industry">Industry</span>
+        </div>
+        <div class="client-name">GJ Impex</div>
+        <div class="client-desc">Surat manufacturer and importer of load cells, crane scales, and weighing-system components, presented with a full product catalogue for industrial buyers.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>gjimpex.in</div>
+      </a>
+
+      <a class="client-card" href="https://evonwindows.com/" target="_blank" data-cat="industry">
+        <div class="client-card-top">
+          <span class="client-icon">🪟</span>
+          <span class="client-category cat-industry">Industry</span>
+        </div>
+        <div class="client-name">Evon Windows</div>
+        <div class="client-desc">Windows and glazing solutions manufacturer with a catalogue-style site highlighting product ranges and specifications for architects and builders.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>evonwindows.com</div>
+      </a>
+
+      <!-- TRAVEL / EVENTS -->
+      <a class="client-card" href="https://iweddestinations.com/" target="_blank" data-cat="travel">
+        <div class="client-card-top">
+          <span class="client-icon">💍</span>
+          <span class="client-category cat-travel">Travel &amp; Events</span>
+        </div>
+        <div class="client-name">Iwedding</div>
+        <div class="client-desc">Destination wedding planning brand helping couples plan ceremonies abroad, with an inspiration-led design and a simple enquiry flow for prospective couples.</div>
+        <div class="client-tech"><span class="client-tag">WordPress</span><span class="client-tag">Elementor</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>iweddestinations.com</div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -852,17 +1009,133 @@ function filterClients(cat, btn) {
     } else {
       const cardCat = card.getAttribute('data-cat');
       const showMap = {
-        textile: ['textile','print'],
+        textile: ['textile'],
         health: ['health'],
         industry: ['industry','jewel','wood','fire'],
         food: ['food'],
-        tech: ['tech','solar']
+        tech: ['tech','solar'],
+        print: ['print'],
+        creative: ['creative'],
+        agency: ['agency'],
+        travel: ['travel']
       };
       card.style.display = (showMap[cat] || []).includes(cardCat) ? '' : 'none';
     }
   });
 }
 </script>
+
+<!-- PLUGINS -->
+<section id="plugins">
+  <div class="section-inner">
+    <div class="section-eyebrow">WordPress Toolkit</div>
+    <h2>Plugins I work with</h2>
+    <p class="clients-count">A working list of the plugins I use most often across live client sites — grouped by what they're used for.</p>
+
+    <div class="plugins-grid">
+
+      <!-- ELEMENTOR -->
+      <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">🧩</span>For Elementor</div>
+        <div class="plugin-row"><span class="plugin-name">Elementor Website Builder – More than Just a Page Builder</span><span class="plugin-use">Website creation — compulsory</span></div>
+        <div class="plugin-row"><span class="plugin-name">Elementor Header &amp; Footer Builder</span><span class="plugin-use">Custom header &amp; footer for Elementor</span></div>
+        <div class="plugin-row"><span class="plugin-name">Essential Addons for Elementor</span><span class="plugin-use">Extra widgets for the site</span></div>
+        <div class="plugin-row"><span class="plugin-name">Premium Addons for Elementor</span><span class="plugin-use">Extra widgets for the site</span></div>
+        <div class="plugin-row"><span class="plugin-name">ElementsKit Elementor Addons</span><span class="plugin-use">Extra widgets for the site</span></div>
+        <div class="plugin-row"><span class="plugin-name">Unlimited Elements For Elementor</span><span class="plugin-use">Free widgets, addons &amp; templates</span></div>
+        <div class="plugin-row"><span class="plugin-name">Happy Addons for Elementor</span><span class="plugin-use">Extra widgets for the site</span></div>
+        <div class="plugin-row"><span class="plugin-name">Unlimited Theme Addon For Elementor</span><span class="plugin-use">Shortcode display (templates &amp; WooCommerce)</span></div>
+        <div class="plugin-row"><span class="plugin-name">CFDB7 Addon</span><span class="plugin-use">Form lead count</span></div>
+        <div class="plugin-row"><span class="plugin-name">E2PDF</span><span class="plugin-use">Convert form data to PDF, sent via email</span></div>
+        <div class="plugin-row"><span class="plugin-name">Widgets for Google Reviews</span><span class="plugin-use">Live Google reviews</span></div>
+        <div class="plugin-row"><span class="plugin-name">To Top</span><span class="plugin-use">Bottom-to-top scroll button</span></div>
+        <div class="plugin-row"><span class="plugin-name">Booking — Webba Booking Calendar</span><span class="plugin-use">Appointment booking &amp; scheduling</span></div>
+        <div class="plugin-row"><span class="plugin-name">10Web</span><span class="plugin-use">Speed &amp; high performance</span></div>
+      </div>
+
+      <!-- FORMS -->
+      <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">📝</span>For Forms</div>
+        <div class="plugin-row"><span class="plugin-name">Contact Form 7</span><span class="plugin-use">Form builder</span></div>
+        <div class="plugin-row"><span class="plugin-name">Country &amp; Phone Field CF7</span><span class="plugin-use">Country code field</span></div>
+        <div class="plugin-row"><span class="plugin-name">Country State City Dropdown CF7</span><span class="plugin-use">Country / state / city dropdown</span></div>
+        <div class="plugin-row"><span class="plugin-name">WP Forms</span><span class="plugin-use">Form builder</span></div>
+        <div class="plugin-row"><span class="plugin-name">WP Mail SMTP</span><span class="plugin-use">Sends form details via email</span></div>
+        <div class="plugin-row"><span class="plugin-name">WPFront Scroll Top</span><span class="plugin-use">Back-to-top button</span></div>
+        <div class="plugin-row"><span class="plugin-name">Redirection for Contact Form 7</span><span class="plugin-use">Post-submit PDF / page / image redirect</span></div>
+        <div class="plugin-row"><span class="plugin-name">Redirection</span><span class="plugin-use">404 &amp; 301 redirect management</span></div>
+        <div class="plugin-row"><span class="plugin-name">Contact Form 7 Captcha</span><span class="plugin-use">Captcha protection</span></div>
+      </div>
+
+      <!-- SLIDER -->
+      <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">🎞️</span>For Slider</div>
+        <div class="plugin-row"><span class="plugin-name">Depicter</span><span class="plugin-use">Best slider plugin — template based</span></div>
+        <div class="plugin-row"><span class="plugin-name">Slider Revolution</span><span class="plugin-use">Custom slider use</span></div>
+        <div class="plugin-row"><span class="plugin-name">Smart Slider 3</span><span class="plugin-use">Slider creation</span></div>
+        <div class="plugin-row"><span class="plugin-name">Prime Slider – Addons For Elementor</span><span class="plugin-use">Revolution, hero, post &amp; ecommerce sliders</span></div>
+      </div>
+
+      <!-- BACKUP -->
+      <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">💾</span>For Backup</div>
+        <div class="plugin-row"><span class="plugin-name">UpdraftPlus</span><span class="plugin-use">Best backup plugin — daily backups for e-commerce</span></div>
+        <div class="plugin-row"><span class="plugin-name">All-in-One WP Migration</span><span class="plugin-use">Complete site backup</span></div>
+      </div>
+
+      <!-- SECURITY -->
+      <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">🔒</span>For Security</div>
+        <div class="plugin-row"><span class="plugin-name">Anti-Malware Security &amp; Brute-Force Firewall</span><span class="plugin-use">Website security</span></div>
+        <div class="plugin-row"><span class="plugin-name">Disable XML-RPC-API</span><span class="plugin-use">Website security</span></div>
+        <div class="plugin-row"><span class="plugin-name">Headers Security Advanced &amp; HSTS WP</span><span class="plugin-use">Website security</span></div>
+        <div class="plugin-row"><span class="plugin-name">Wordfence Security</span><span class="plugin-use">Website security</span></div>
+        <div class="plugin-row"><span class="plugin-name">WPS Hide Login</span><span class="plugin-use">Changes wp-admin login URL</span></div>
+      </div>
+
+      <!-- GENERAL WP -->
+      <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">⚡</span>General WordPress Use</div>
+        <div class="plugin-row"><span class="plugin-name">Advanced WordPress Reset</span><span class="plugin-use">Debug, recover &amp; reset WP — removes everything, use with care</span></div>
+        <div class="plugin-row"><span class="plugin-name">Flat Preloader</span><span class="plugin-use">Page-load screen design</span></div>
+        <div class="plugin-row"><span class="plugin-name">WP Faster Cache</span><span class="plugin-use">Caches the website</span></div>
+        <div class="plugin-row"><span class="plugin-name">Lazy Load</span><span class="plugin-use">Speeds up the website</span></div>
+        <div class="plugin-row"><span class="plugin-name">LoginPress</span><span class="plugin-use">WP login page &amp; form design</span></div>
+        <div class="plugin-row"><span class="plugin-name">Smush</span><span class="plugin-use">Compresses uploaded images</span></div>
+        <div class="plugin-row"><span class="plugin-name">LiteSpeed Cache</span><span class="plugin-use">Caches the website</span></div>
+        <div class="plugin-row"><span class="plugin-name">Really Simple SSL</span><span class="plugin-use">SSL for the site</span></div>
+        <div class="plugin-row"><span class="plugin-name">WP-Optimize</span><span class="plugin-use">Clean, compress &amp; cache — speeds up site</span></div>
+        <div class="plugin-row"><span class="plugin-name">MouseWheel Smooth Scroll</span><span class="plugin-use">Smooth scrolling</span></div>
+        <div class="plugin-row"><span class="plugin-name">Under Construction</span><span class="plugin-use">Maintenance mode</span></div>
+        <div class="plugin-row"><span class="plugin-name">Advanced Page Visit Counter</span><span class="plugin-use">Page visit counter</span></div>
+        <div class="plugin-row"><span class="plugin-name">Kivicare</span><span class="plugin-use">Booking appointment plugin</span></div>
+      </div>
+
+      <!-- WOOCOMMERCE -->
+      <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">🛒</span>For E-Commerce (WooCommerce)</div>
+        <div class="plugin-row"><span class="plugin-name">WooCommerce</span><span class="plugin-use">Add-to-cart &amp; checkout — core functionality</span></div>
+        <div class="plugin-row"><span class="plugin-name">Minimum &amp; Maximum Quantity for WooCommerce</span><span class="plugin-use">Sets min / max order quantity</span></div>
+        <div class="plugin-row"><span class="plugin-name">Login with Phone Number</span><span class="plugin-use">Phone-number login — up to 50 OTPs/day</span></div>
+        <div class="plugin-row"><span class="plugin-name">Woodmart Core</span><span class="plugin-use">Extra widgets for Elementor</span></div>
+        <div class="plugin-row"><span class="plugin-name">Buy Now Button for WooCommerce</span><span class="plugin-use">WhatsApp message with product details</span></div>
+        <div class="plugin-row"><span class="plugin-name">Order on Mobile for WooCommerce</span><span class="plugin-use">WhatsApp message with product details</span></div>
+        <div class="plugin-row"><span class="plugin-name">Payment Gateway Based Fees &amp; Discounts</span><span class="plugin-use">Discounts based on payment method</span></div>
+        <div class="plugin-row"><span class="plugin-name">Pixel Manager for WooCommerce</span><span class="plugin-use">Pixel management for WooCommerce</span></div>
+        <div class="plugin-row"><span class="plugin-name">Razorpay for WooCommerce</span><span class="plugin-use">Payment gateway</span></div>
+        <div class="plugin-row"><span class="plugin-name">Smart Coupons For WooCommerce</span><span class="plugin-use">Coupons &amp; discounts</span></div>
+        <div class="plugin-row"><span class="plugin-name">WooCommerce Smart COD</span><span class="plugin-use">Cash-on-delivery payment option</span></div>
+      </div>
+
+      <!-- SHOPIFY -->
+      <!-- <div class="plugin-category">
+        <div class="plugin-category-title"><span class="plugin-category-icon">🛍️</span>For Shopify</div>
+        <div class="plugin-row"><span class="plugin-name">Search &amp; Discovery</span><span class="plugin-use">Product filtering &amp; search</span></div>
+      </div> -->
+
+    </div>
+  </div>
+</section>
 
 <section id="education" style="background: var(--mist);">
   <div class="section-inner">
@@ -964,7 +1237,7 @@ function filterClients(cat, btn) {
       <div class="contact-card">
         <div class="contact-card-icon">📍</div>
         <div class="contact-card-label">Location</div>
-        <div class="contact-card-value">Ahmedabad, Gujarat, India</div>
+        <div class="contact-card-value">Surat, Gujarat, India</div>
       </div>
     </div>
     <a href="mailto:dhruvrana26602@gmail.com" class="btn-primary" style="margin: 0 auto; display:inline-flex;">
@@ -975,7 +1248,7 @@ function filterClients(cat, btn) {
 
 <!-- FOOTER -->
 <footer>
-  <span>Dhruv Rana</span> · MCA Student &amp; Full-Stack Developer · Ahmedabad, India
+  <span>Dhruv Rana</span> · MCA Student &amp; Full-Stack Developer · Surat, India
   <br/>Designed &amp; built with care · 2025
 </footer>
 
