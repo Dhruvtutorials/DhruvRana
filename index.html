@@ -375,7 +375,7 @@
     }
     .clients-count strong { color: var(--blue); }
 
-    /* ── PLUGINS ── */
+    /* ── PLUGINS (hidden) ── */
     .plugins-grid {
       display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px;
     }
@@ -401,6 +401,78 @@
     .plugin-name { font-size: 0.83rem; font-weight: 600; color: var(--ink); flex: 1.3; }
     .plugin-use { font-size: 0.78rem; color: var(--slate); flex: 1; text-align: right; }
 
+    /* ── FREELANCE CTA ── */
+    #freelance-cta {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--blue) 100%);
+      padding: 56px 6vw;
+    }
+    .freelance-cta-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 32px; flex-wrap: wrap;
+    }
+    .freelance-cta-text h3 {
+      font-family: 'Lora', serif; color: white; font-size: 1.5rem;
+      font-weight: 600; margin-bottom: 8px;
+    }
+    .freelance-cta-text p {
+      color: rgba(255,255,255,0.85); font-size: 0.92rem; max-width: 480px;
+    }
+    .btn-whatsapp-cta {
+      display: inline-flex; align-items: center; gap: 10px;
+      background: #25D366; color: white;
+      padding: 15px 30px; border-radius: var(--radius);
+      text-decoration: none; font-weight: 700; font-size: 0.95rem;
+      white-space: nowrap;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.35);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .btn-whatsapp-cta:hover { background: #1EBE5A; transform: translateY(-2px); }
+
+    /* ── WHATSAPP FLOAT ── */
+    .whatsapp-float {
+      position: fixed; bottom: 26px; right: 26px; z-index: 200;
+      width: 58px; height: 58px; border-radius: 50%;
+      background: #25D366; color: white;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 8px 24px rgba(37,211,102,0.45);
+      text-decoration: none;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .whatsapp-float:hover {
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 12px 30px rgba(37,211,102,0.55);
+    }
+    .whatsapp-float::before {
+      content: '';
+      position: absolute; inset: -6px;
+      border-radius: 50%;
+      border: 2px solid #25D366;
+      opacity: 0.5;
+      animation: wa-pulse 2.2s ease-out infinite;
+    }
+    @keyframes wa-pulse {
+      0%   { transform: scale(0.9); opacity: 0.6; }
+      70%  { transform: scale(1.35); opacity: 0; }
+      100% { transform: scale(1.35); opacity: 0; }
+    }
+    .whatsapp-tooltip {
+      position: absolute; right: 68px; top: 50%; transform: translateY(-50%);
+      background: var(--navy); color: white;
+      font-size: 0.78rem; font-weight: 600;
+      padding: 7px 14px; border-radius: 8px;
+      white-space: nowrap;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.2s, right 0.2s;
+    }
+    .whatsapp-float:hover .whatsapp-tooltip {
+      opacity: 1; right: 72px;
+    }
+    @media (max-width: 860px) {
+      .whatsapp-float { bottom: 18px; right: 18px; width: 52px; height: 52px; }
+      .whatsapp-tooltip { display: none; }
+    }
+
     @media (max-width: 860px) {
       .hero-inner { grid-template-columns: 1fr; gap: 40px; }
       .hero-photo-wrap { order: -1; }
@@ -411,10 +483,17 @@
       .nav-links { display: none; }
       .plugin-row { flex-direction: column; gap: 2px; }
       .plugin-use { text-align: left; }
+      .freelance-cta-inner { flex-direction: column; text-align: center; }
     }
   </style>
 </head>
 <body>
+
+<!-- WHATSAPP FLOATING BUTTON -->
+<a href="https://wa.me/919870098180?text=Hi%20Dhruv%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat on WhatsApp">
+  <span class="whatsapp-tooltip">Chat on WhatsApp</span>
+  <svg width="30" height="30" viewBox="0 0 32 32" fill="white"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.36.687 4.56 1.872 6.41L4 29l7.78-1.84A11.94 11.94 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm6.99 17.06c-.297.836-1.47 1.53-2.41 1.73-.64.135-1.475.243-4.29-.92-3.6-1.49-5.91-5.14-6.09-5.38-.18-.24-1.46-1.94-1.46-3.7 0-1.76.92-2.62 1.25-2.98.33-.36.72-.45.96-.45.24 0 .48 0 .69.01.22.01.52-.084.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.7z"/></svg>
+</a>
 
 <!-- NAV -->
 <nav>
@@ -425,7 +504,6 @@
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
     <li><a href="#clientwork">Client Work</a></li>
-    <li><a href="#plugins">Plugins</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
 </nav>
@@ -449,6 +527,9 @@
           View Projects
         </a>
         <a href="#contact" class="btn-ghost">Get in Touch</a>
+        <a href="https://wa.me/919870098180?text=Hi%20Dhruv%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener" class="btn-ghost" style="border-color:#25D366;color:#1C9C50;">
+          <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor" style="vertical-align:-3px;margin-right:4px;"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.36.687 4.56 1.872 6.41L4 29l7.78-1.84A11.94 11.94 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm6.99 17.06c-.297.836-1.47 1.53-2.41 1.73-.64.135-1.475.243-4.29-.92-3.6-1.49-5.91-5.14-6.09-5.38-.18-.24-1.46-1.94-1.46-3.7 0-1.76.92-2.62 1.25-2.98.33-.36.72-.45.96-.45.24 0 .48 0 .69.01.22.01.52-.084.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.7z"/></svg>WhatsApp Me
+        </a>
       </div>
       <div class="hero-contact">
         <a href="mailto:dhruvrana26602@gmail.com" class="contact-pill">
@@ -1025,8 +1106,22 @@ function filterClients(cat, btn) {
 }
 </script>
 
-<!-- PLUGINS -->
-<section id="plugins">
+<!-- FREELANCE WORK CTA -->
+<section id="freelance-cta">
+  <div class="freelance-cta-inner">
+    <div class="freelance-cta-text">
+      <h3>Available for freelance work</h3>
+      <p>Need a WordPress site, WooCommerce store, or a full-stack build? I take on freelance projects alongside my full-time role — message me directly on WhatsApp and let's talk about it.</p>
+    </div>
+    <a href="https://wa.me/919870098180?text=Hi%20Dhruv%2C%20I%20have%20a%20freelance%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener" class="btn-whatsapp-cta">
+      <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.36.687 4.56 1.872 6.41L4 29l7.78-1.84A11.94 11.94 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm6.99 17.06c-.297.836-1.47 1.53-2.41 1.73-.64.135-1.475.243-4.29-.92-3.6-1.49-5.91-5.14-6.09-5.38-.18-.24-1.46-1.94-1.46-3.7 0-1.76.92-2.62 1.25-2.98.33-.36.72-.45.96-.45.24 0 .48 0 .69.01.22.01.52-.084.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.7z"/></svg>
+      Hire Me on WhatsApp
+    </a>
+  </div>
+</section>
+
+<!-- PLUGINS (hidden from live view; kept in markup for reference) -->
+<section id="plugins" style="display:none;">
   <div class="section-inner">
     <div class="section-eyebrow">WordPress Toolkit</div>
     <h2>Plugins I work with</h2>
@@ -1127,12 +1222,6 @@ function filterClients(cat, btn) {
         <div class="plugin-row"><span class="plugin-name">WooCommerce Smart COD</span><span class="plugin-use">Cash-on-delivery payment option</span></div>
       </div>
 
-      <!-- SHOPIFY -->
-      <!-- <div class="plugin-category">
-        <div class="plugin-category-title"><span class="plugin-category-icon">🛍️</span>For Shopify</div>
-        <div class="plugin-row"><span class="plugin-name">Search &amp; Discovery</span><span class="plugin-use">Product filtering &amp; search</span></div>
-      </div> -->
-
     </div>
   </div>
 </section>
@@ -1229,6 +1318,11 @@ function filterClients(cat, btn) {
         <div class="contact-card-label">Phone</div>
         <div class="contact-card-value">+91 98700 98180</div>
       </a>
+      <a href="https://wa.me/919870098180?text=Hi%20Dhruv%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" class="contact-card">
+        <div class="contact-card-icon">💬</div>
+        <div class="contact-card-label">WhatsApp</div>
+        <div class="contact-card-value">Chat directly</div>
+      </a>
       <a href="https://linkedin.com/in/dhruvrana26602" target="_blank" class="contact-card">
         <div class="contact-card-icon">🔗</div>
         <div class="contact-card-label">LinkedIn</div>
@@ -1248,8 +1342,8 @@ function filterClients(cat, btn) {
 
 <!-- FOOTER -->
 <footer>
-  <span>Dhruv Rana</span> · MCA Student &amp; Full-Stack Developer · Surat, India
-  <br/>Designed &amp; built with care · 2025
+  <span>Dhruv Rana</span> · MCA Student &amp; WordPress Developer · Surat, India
+  <br/>Designed &amp; built with care · 2026
 </footer>
 
 </body>
