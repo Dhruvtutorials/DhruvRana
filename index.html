@@ -358,6 +358,7 @@
     .cat-agency   { background: #DBEAFE; color: #1E3A8A; }
     .cat-creative { background: #FFE4E6; color: #9F1239; }
     .cat-travel   { background: #E0F2FE; color: #075985; }
+    .cat-shopify  { background: #DCFCE7; color: #166534; }
     .client-name { font-size: 1rem; font-weight: 700; color: var(--navy); }
     .client-desc { font-size: 0.84rem; color: var(--slate); line-height: 1.55; flex: 1; }
     .client-url {
@@ -513,24 +514,36 @@
   <div class="hero-inner">
     <div class="hero-text">
       <div class="hero-tag">Introduction</div>
-      <h1>Hi, I'm Dhruv Rana <br/>a <em>WordPress</em> &amp;<br/>full-stack developer</h1>
+      <h1>Hi, I'm Dhruv Rana <br/>a <em>WordPress &amp; Shopify</em> <br/>full-stack developer</h1>
       <p class="hero-sub">
         I'm an MCA student at LJ University, Ahmedabad, currently working as a WordPress
-        Developer at Badiya Brand in Surat, where I build and maintain live client websites
-        end to end. Alongside client work, I build full-stack and blockchain projects in
-        Python, PHP, and Django. I care about clean, maintainable code, fast-loading pages,
-        and getting the small details right for every project I touch.
+        &amp; Shopify Developer at Badiya Brand in Surat, where I build and maintain live client
+        websites and stores end to end. Alongside client work, I build full-stack and blockchain
+        projects in Python, PHP, and Django. I care about clean, maintainable code, fast-loading
+        pages, and getting the small details right for every project I touch.
       </p>
+      
+      <!-- HERO ACTIONS SECTION (With updated view and download functionality attached) -->
       <div class="hero-actions">
         <a href="#projects" class="btn-primary">
           <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/></svg>
           View Projects
         </a>
-        <a href="#contact" class="btn-ghost">Get in Touch</a>
+        
+        <!-- RESUME DOWNLOAD & VIEW ATTACHED LINK -->
+        <a id="downloadResumeBtn" href="assets/dhruv_rana_CV.pdf" download="dhruv_rana_CV.pdf" target="_blank" class="btn-ghost" style="border-color: var(--blue); color: var(--blue); display: inline-flex; align-items: center; gap: 6px; font-weight: 600;">
+          <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M3 16v1a3 3 0 003 3h12a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+          </svg>
+          Download CV
+        </a>
+        
+        <!-- <a href="#contact" class="btn-ghost">Get in Touch</a>
         <a href="https://wa.me/919870098180?text=Hi%20Dhruv%2C%20I%20saw%20your%20portfolio%20and%20wanted%20to%20connect." target="_blank" rel="noopener" class="btn-ghost" style="border-color:#25D366;color:#1C9C50;">
           <svg width="16" height="16" viewBox="0 0 32 32" fill="currentColor" style="vertical-align:-3px;margin-right:4px;"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.36.687 4.56 1.872 6.41L4 29l7.78-1.84A11.94 11.94 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm6.99 17.06c-.297.836-1.47 1.53-2.41 1.73-.64.135-1.475.243-4.29-.92-3.6-1.49-5.91-5.14-6.09-5.38-.18-.24-1.46-1.94-1.46-3.7 0-1.76.92-2.62 1.25-2.98.33-.36.72-.45.96-.45.24 0 .48 0 .69.01.22.01.52-.084.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.7z"/></svg>WhatsApp Me
-        </a>
+        </a> -->
       </div>
+      
       <div class="hero-contact">
         <a href="mailto:dhruvrana1935@gmail.com" class="contact-pill">
           <svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
@@ -567,27 +580,20 @@
     <div class="about-grid">
       <div class="about-text">
         <p>
-          My name is Dhruv Rana. I am a Master of Computer Applications (MCA) student at LJ
-          University, Ahmedabad, and I currently work as a WordPress Developer at Badiya Brand
-          in Surat, Gujarat. Over the past several months I have built and maintained more than
-          twenty live, production websites for real businesses from textile manufacturers and
-          clinics to solar EPC firms and food exporters handling everything from Elementor page
-          design and WooCommerce setup to SEO, performance, and security.
+          I'm Dhruv Rana, an MCA student at LJ University, Ahmedabad, and a WordPress &amp;
+          Shopify Developer at Badiya Brand in Surat. I've built and maintained 27+ live
+          production websites and stores across textile, health, industry, food, and D2C
+          brands covering Elementor design, WooCommerce and Shopify setup, SEO, and performance.
         </p>
         <p>
-          Alongside my day-to-day WordPress work, I also build full-stack applications across
-          the stack, from database design to responsive front-end interfaces. My personal
-          projects range from a blockchain-based e-voting platform to a full-stack car rental
-          system with optimised SQL and secure authentication. I enjoy the discipline of writing
-          clean, well-structured code and the satisfaction of shipping something that actually
-          works well for the people using it.
+          Beyond client work, I build full-stack projects in Python, PHP, and Django from
+          a blockchain e-voting platform to a car rental system with optimised SQL. I care
+          about clean code, fast pages, and getting the details right.
         </p>
         <p>
-          Outside of code, I have earned recognition in competitive programming and hold
-          certifications in SAP consulting, data science, and UX design. I am actively looking
-          for a software engineering internship or full-time opportunity where I can bring this
-          same combination of practical WordPress experience and full-stack development skill to
-          a larger engineering team.
+          I hold certifications in SAP, data science, and UX design, and I'm a competitive
+          programming award winner. Currently open to software engineering internship or
+          full-time opportunities.
         </p>
       </div>
       <div class="about-stats">
@@ -596,7 +602,7 @@
           <div class="stat-label">Years of Coding Experience</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">24</div>
+          <div class="stat-number">27</div>
           <div class="stat-label">Live Client Websites</div>
         </div>
         <div class="stat-card">
@@ -659,6 +665,18 @@
       </div>
 
       <div class="skill-card">
+        <div class="skill-icon">🛍️</div>
+        <h3>Shopify Development</h3>
+        <div class="skill-tags">
+          <span class="tag">Liquid</span>
+          <span class="tag">Theme Customisation</span>
+          <span class="tag">Shopify Apps</span>
+          <span class="tag">Storefront API</span>
+          <span class="tag">Product & Checkout Setup</span>
+        </div>
+      </div>
+
+      <div class="skill-card">
         <div class="skill-icon">🛠️</div>
         <h3>Tools &amp; Platforms</h3>
         <div class="skill-tags">
@@ -705,11 +723,12 @@
         <div class="timeline-date">Nov 2025 – Present<br/>(8 Months)</div>
         <div class="timeline-body">
           <div class="timeline-company">Badiya Brand · Surat, Gujarat, India (On-site)</div>
-          <div class="timeline-role">WordPress Developer</div>
+          <div class="timeline-role">WordPress &amp; Shopify Developer</div>
           <ul>
             <li>Developed and maintained responsive WordPress websites, optimising themes and plugins to improve page-load performance and Core Web Vitals scores.</li>
             <li>Built and customised pages using Elementor page builder, including custom widgets, dynamic templates, and reusable global sections to speed up development cycles.</li>
             <li>Configured and managed WooCommerce storefronts, including product catalogs, payment gateway integration, and order workflows.</li>
+            <li>Developed and customised Shopify storefronts theme edits, app integrations, and product/checkout configuration for D2C and retail clients.</li>
             <li>Implemented on-page SEO best practices (structured data/schema markup, XML sitemap optimisation, meta tags) using tools such as Yoast SEO / Rank Math, improving organic search visibility.</li>
             <li>Used caching and optimisation plugins (e.g., WP Rocket, Smush) alongside custom CSS/JavaScript to reduce load times and improve site performance.</li>
             <li>Managed website hosting, backups, security hardening, and version control (Git) for client sites.</li>
@@ -780,11 +799,11 @@
 <section id="clientwork">
   <div class="section-inner">
     <div class="section-eyebrow">Client Work</div>
-    <h2>24 live websites delivered</h2>
-    <p class="clients-count">Real production sites built and maintained across diverse industries — <strong>all WordPress / Elementor</strong>, SEO-optimised and live.</p>
+    <h2>27 live websites delivered</h2>
+    <p class="clients-count">Real production sites built and maintained across diverse industries — <strong>WordPress / Elementor &amp; Shopify</strong>, SEO-optimised and live.</p>
 
     <div class="clients-filter">
-      <button class="filter-btn active" onclick="filterClients('all', this)">All (24)</button>
+      <button class="filter-btn active" onclick="filterClients('all', this)">All (27)</button>
       <button class="filter-btn" onclick="filterClients('textile', this)">Textile &amp; Fashion</button>
       <button class="filter-btn" onclick="filterClients('health', this)">Health &amp; Wellness</button>
       <button class="filter-btn" onclick="filterClients('industry', this)">Industry &amp; Manufacturing</button>
@@ -794,6 +813,7 @@
       <button class="filter-btn" onclick="filterClients('creative', this)">Photography &amp; Media</button>
       <button class="filter-btn" onclick="filterClients('agency', this)">Digital Agency</button>
       <button class="filter-btn" onclick="filterClients('travel', this)">Travel &amp; Events</button>
+      <button class="filter-btn" onclick="filterClients('shopify', this)">Shopify</button>
     </div>
 
     <div class="clients-grid" id="clientsGrid">
@@ -1074,6 +1094,40 @@
         <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>iweddestinations.com</div>
       </a>
 
+      <!-- SHOPIFY -->
+      <a class="client-card" href="https://vedaprint.com/" target="_blank" data-cat="shopify">
+        <div class="client-card-top">
+          <span class="client-icon">🖨️</span>
+          <span class="client-category cat-shopify">Shopify</span>
+        </div>
+        <div class="client-name">Veda Print</div>
+        <div class="client-desc">Shopify storefront for a printing brand, built with custom theme sections and a streamlined product-to-checkout flow for online orders.</div>
+        <div class="client-tech"><span class="client-tag">Shopify</span><span class="client-tag">Liquid</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>vedaprint.com</div>
+      </a>
+
+      <a class="client-card" href="https://joshindia.com/" target="_blank" data-cat="shopify">
+        <div class="client-card-top">
+          <span class="client-icon">🛍️</span>
+          <span class="client-category cat-shopify">Shopify</span>
+        </div>
+        <div class="client-name">Josh India</div>
+        <div class="client-desc">Shopify e-commerce store built with custom theme development, product catalogue setup, and app integrations for a smooth shopping experience.</div>
+        <div class="client-tech"><span class="client-tag">Shopify</span><span class="client-tag">Liquid</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>joshindia.com</div>
+      </a>
+
+      <a class="client-card" href="https://vastrasaar.com/" target="_blank" data-cat="shopify">
+        <div class="client-card-top">
+          <span class="client-icon">👘</span>
+          <span class="client-category cat-shopify">Shopify</span>
+        </div>
+        <div class="client-name">Vastrasaar</div>
+        <div class="client-desc">Fashion and apparel Shopify store featuring custom collection pages, responsive product galleries, and an optimised checkout experience.</div>
+        <div class="client-tech"><span class="client-tag">Shopify</span><span class="client-tag">Liquid</span><span class="client-tag">SEO</span></div>
+        <div class="client-url"><svg width="12" height="12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>vastrasaar.com</div>
+      </a>
+
     </div>
   </div>
 </section>
@@ -1096,7 +1150,8 @@ function filterClients(cat, btn) {
         print: ['print'],
         creative: ['creative'],
         agency: ['agency'],
-        travel: ['travel']
+        travel: ['travel'],
+        shopify: ['shopify']
       };
       card.style.display = (showMap[cat] || []).includes(cardCat) ? '' : 'none';
     }
@@ -1109,7 +1164,7 @@ function filterClients(cat, btn) {
   <div class="freelance-cta-inner">
     <div class="freelance-cta-text">
       <h3>Available for freelance work</h3>
-      <p>Need a WordPress site, WooCommerce store, or a full-stack build? I take on freelance projects alongside my full-time role message me directly on WhatsApp and let's talk about it.</p>
+      <p>Need a WordPress site, WooCommerce store, Shopify store, or a full-stack build? I take on freelance projects alongside my full-time role message me directly on WhatsApp and let's talk about it.</p>
     </div>
     <a href="https://wa.me/919870098180?text=Hi%20Dhruv%2C%20I%20have%20a%20freelance%20project%20I%27d%20like%20to%20discuss." target="_blank" rel="noopener" class="btn-whatsapp-cta">
       <svg width="20" height="20" viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.36.687 4.56 1.872 6.41L4 29l7.78-1.84A11.94 11.94 0 0016 27c6.627 0 12-5.373 12-12S22.628 3 16.001 3zm6.99 17.06c-.297.836-1.47 1.53-2.41 1.73-.64.135-1.475.243-4.29-.92-3.6-1.49-5.91-5.14-6.09-5.38-.18-.24-1.46-1.94-1.46-3.7 0-1.76.92-2.62 1.25-2.98.33-.36.72-.45.96-.45.24 0 .48 0 .69.01.22.01.52-.084.81.62.3.72 1.02 2.49 1.11 2.67.09.18.15.39.03.63-.12.24-.18.39-.36.6-.18.21-.38.47-.54.63-.18.18-.37.38-.16.74.21.36.93 1.53 2 2.48 1.37 1.22 2.53 1.6 2.89 1.78.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.1.99 2.46 1.17.36.18.6.27.69.42.09.15.09.87-.21 1.7z"/></svg>
@@ -1340,7 +1395,7 @@ function filterClients(cat, btn) {
 
 <!-- FOOTER -->
 <footer>
-  <span>Dhruv Rana</span> · MCA Student &amp; WordPress Developer · Surat, India
+  <span>Dhruv Rana</span> · MCA Student &amp; WordPress &amp; Shopify Developer · Surat, India
   <br/>Designed &amp; built with care · 2026
 </footer>
 
